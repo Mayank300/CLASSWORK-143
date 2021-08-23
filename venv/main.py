@@ -3,10 +3,11 @@ import csv
 from demo_graphic import output
 from content_filter import getRecomendation
 from storage import liked_movies,disliked_movies,unwatched_movies,all_movies
-
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/get-movies')
 

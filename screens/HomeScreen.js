@@ -14,7 +14,6 @@ export default class HomeScreen extends Component {
 
   componentDidMount() {
     this.getMovie();
-    console.log(this.state.movieDetails);
   }
 
   timeConvert(num) {
@@ -24,7 +23,7 @@ export default class HomeScreen extends Component {
   }
 
   getMovie = () => {
-    const url = "http://feca-103-77-37-182.ngrok.io/get-movies";
+    const url = "https://d37a-103-77-37-154.ngrok.io/get-movies";
     axios
       .get(url)
       .then((response) => {
@@ -38,7 +37,7 @@ export default class HomeScreen extends Component {
   };
 
   likedMovie = () => {
-    const url = "http://feca-103-77-37-182.ngrok.io/liked-movies";
+    const url = "https://d37a-103-77-37-154.ngrok.io/liked-movies";
     axios
       .post(url)
       .then((response) => {
@@ -50,7 +49,7 @@ export default class HomeScreen extends Component {
   };
 
   unlikedMovie = () => {
-    const url = "http://feca-103-77-37-182.ngrok.io/disliked-movies";
+    const url = "https://d37a-103-77-37-154.ngrok.io/disliked-movies";
     axios
       .post(url)
       .then((response) => {
@@ -62,7 +61,7 @@ export default class HomeScreen extends Component {
   };
 
   notWatched = () => {
-    const url = "http://feca-103-77-37-182.ngrok.io/unwatched-movies";
+    const url = "https://d37a-103-77-37-154.ngrok.io/unwatched-movies";
     axios
       .post(url)
       .then((response) => {
@@ -75,6 +74,8 @@ export default class HomeScreen extends Component {
 
   render() {
     const { movieDetails } = this.state;
+
+    console.log(movieDetails);
     if (movieDetails.poster_link) {
       const { poster_link, title, release_date, duration, overview, rating } =
         movieDetails;
@@ -100,7 +101,9 @@ export default class HomeScreen extends Component {
               <View style={styles.upperBottomContainer}>
                 <Text style={styles.title}>{title}</Text>
                 {/* TODO: this ⤵ line is giving some error!! So I have just commented that out */}
-                {/* <Text style={styles.subtitle}>{`${release_date.split("-")[0]} | ${duration}`}</Text> */}
+                {/* <Text style={styles.subtitle}>{`${
+                  release_date.split("-")[0]
+                } | ${duration}`}</Text> */}
               </View>
               <View style={styles.middleBottomContainer}>
                 <View style={{ flex: 0.3 }}>

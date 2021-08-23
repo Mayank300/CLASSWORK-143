@@ -2,7 +2,7 @@ import csv
 
 all_movies = []
 
-with open('final.csv') as f:
+with open('./venv/final.csv') as f:
     reader = csv.reader(f)
     data = list(reader)
     all_movies.append(data[1:])

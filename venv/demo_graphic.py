@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 import numpy as np
 
-df  = pd.read_csv('final.csv')
+df  = pd.read_csv('./venv/final.csv')
 C = df['vote_average'].mean()
 M = df['vote_count'].quantile(0.9)
 q_movies = df.copy().loc[df['vote_count'] >= M]
